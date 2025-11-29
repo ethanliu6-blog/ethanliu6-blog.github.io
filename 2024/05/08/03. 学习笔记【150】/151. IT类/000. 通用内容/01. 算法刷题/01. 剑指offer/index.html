@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 7.1.1">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/avatar.jpg">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/avatar.jpg">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/avatar.jpg">
+  <link rel="mask-icon" href="/images/avatar.jpg" color="#222">
+  <meta name="msvalidate.01" content="4AF2328B2035748153A041B7EEF3D15C">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Serif+SC:300,300italic,400,400italic,700,700italic%7CLobster:300,300italic,400,400italic,700,700italic%7CPingFang+SC:300,300italic,400,400italic,700,700italic%7CRoboto+Mono:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha256-wiz7ZSCn/btzhjKDQBms9Hx4sSeUYsDrTLg7roPstac=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.33/fancybox/fancybox.css" integrity="sha256-gkQVf8UKZgQ0HyuxL/VnacadJ+D2Kox2TCEBuNQg5+w=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"ethanliu6.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.19.2","exturl":true,"sidebar":{"position":"left","display":"always","padding":12,"offset":18},"copycode":{"enable":true,"style":"mac"},"fold":{"enable":true,"height":300},"bookmark":{"enable":true,"color":"#222","save":"manual"},"mediumzoom":true,"lazyload":true,"pangu":false,"comments":{"style":"buttons","active":"changyan","storage":true,"lazyload":false,"nav":null,"activeClass":"changyan"},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":6,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="该篇是关于算法的剑指offer刷题系列">
+<meta property="og:type" content="article">
+<meta property="og:title" content="剑指offer">
+<meta property="og:url" content="http://ethanliu6.github.io/2024/05/08/03.%20%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%E3%80%90150%E3%80%91/151.%20IT%E7%B1%BB/000.%20%E9%80%9A%E7%94%A8%E5%86%85%E5%AE%B9/01.%20%E7%AE%97%E6%B3%95%E5%88%B7%E9%A2%98/01.%20%E5%89%91%E6%8C%87offer/index.html">
+<meta property="og:site_name" content="&lt;font color&#x3D;&#39;white&#39; &gt;Ethan の Blog&lt;&#x2F;font&gt;">
+<meta property="og:description" content="该篇是关于算法的剑指offer刷题系列">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://uploadfiles.nowcoder.com/images/20210717/557336_1626506480516/103D87B58E565E87DEFA9DD0B822C55F">
+<meta property="article:published_time" content="2024-05-07T16:00:00.000Z">
+<meta property="article:modified_time" content="2024-09-14T12:55:59.853Z">
+<meta property="article:author" content="Ethan Liu">
+<meta property="article:tag" content="剑指offer">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://uploadfiles.nowcoder.com/images/20210717/557336_1626506480516/103D87B58E565E87DEFA9DD0B822C55F">
+
+
+<link rel="canonical" href="http://ethanliu6.github.io/2024/05/08/03.%20%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%E3%80%90150%E3%80%91/151.%20IT%E7%B1%BB/000.%20%E9%80%9A%E7%94%A8%E5%86%85%E5%AE%B9/01.%20%E7%AE%97%E6%B3%95%E5%88%B7%E9%A2%98/01.%20%E5%89%91%E6%8C%87offer/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://ethanliu6.github.io/2024/05/08/03.%20%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%E3%80%90150%E3%80%91/151.%20IT%E7%B1%BB/000.%20%E9%80%9A%E7%94%A8%E5%86%85%E5%AE%B9/01.%20%E7%AE%97%E6%B3%95%E5%88%B7%E9%A2%98/01.%20%E5%89%91%E6%8C%87offer/","path":"2024/05/08/03. 学习笔记【150】/151. IT类/000. 通用内容/01. 算法刷题/01. 剑指offer/","title":"剑指offer"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>剑指offer | <font color='white' >Ethan の Blog</font></title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<style>.darkmode--activated{--body-bg-color:#282828;--content-bg-color:#333;--card-bg-color:#555;--text-color:#ccc;--blockquote-color:#bbb;--link-color:#ccc;--link-hover-color:#eee;--brand-color:#ddd;--brand-hover-color:#ddd;--table-row-odd-bg-color:#282828;--table-row-hover-bg-color:#363636;--menu-item-bg-color:#555;--btn-default-bg:#222;--btn-default-color:#ccc;--btn-default-border-color:#555;--btn-default-hover-bg:#666;--btn-default-hover-color:#ccc;--btn-default-hover-border-color:#666;--highlight-background:#282b2e;--highlight-foreground:#a9b7c6;--highlight-gutter-background:#34393d;--highlight-gutter-foreground:#9ca9b6}.darkmode--activated img{opacity:.75}.darkmode--activated img:hover{opacity:.9}.darkmode--activated code{color:#69dbdc;background:0 0}button.darkmode-toggle{z-index:9999}.darkmode-ignore,img{display:flex!important}.beian img{display:inline-block!important}</style></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title"><font color='white' >Ethan の Blog</font></p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description"><font color='#FDABC1' size=3>清醒的停留，胜过——盲目的前行</font></p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-关于我"><a href="/aboutme/" rel="section"><i class="fa fa-user fa-fw"></i>关于我</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">26</span></a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">19</span></a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">72</span></a></li><li class="menu-item menu-item-love"><a href="/categories/Love/" rel="section"><i class="fas fa-heart fa-fw"></i>Love</a></li><li class="menu-item menu-item-个人感悟"><a href="/categories/%E4%B8%AA%E4%BA%BA%E6%84%9F%E6%82%9F/" rel="section"><i class="fa fa-pen-nib fa-fw"></i>个人感悟</a></li><li class="menu-item menu-item-阅读笔记"><a href="/categories/%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/" rel="section"><i class="fa fa-book-open-reader fa-fw"></i>阅读笔记</a></li><li class="menu-item menu-item-任务清单"><span class="exturl" data-url="aHR0cHM6Ly9kaWRhMzY1LmNvbS93ZWJhcHAjcC9pbmJveC90YXNrcw=="><i class="fa fa-list-check fa-fw"></i>任务清单</span></li><li class="menu-item menu-item-内网云盘"><span class="exturl" data-url="aHR0cDovLzE3Mi4yNi44LjU4OjUyNDQv"><i class="fa fa-cloud fa-fw"></i>内网云盘</span></li><li class="menu-item menu-item-外网云盘"><span class="exturl" data-url="aHR0cHM6Ly84YmFiLTI0MDktODc2Mi1lMzQtMjAtODg5OS0wMC1kNTAubmdyb2stZnJlZS5hcHA="><i class="fa fa-cloud fa-fw"></i>外网云盘</span></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%89%91%E6%8C%87offer72%E9%A2%98"><span class="nav-number">1.</span> <span class="nav-text">剑指offer72题</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%95%B0%E7%BB%84"><span class="nav-number">1.1.</span> <span class="nav-text">数组</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#JZ3-%E6%95%B0%E7%BB%84%E4%B8%AD%E9%87%8D%E5%A4%8D%E7%9A%84%E6%95%B0%E5%AD%97"><span class="nav-number">1.1.1.</span> <span class="nav-text">JZ3 数组中重复的数字</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%8F%8F%E8%BF%B0"><span class="nav-number">1.1.1.1.</span> <span class="nav-text">描述</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%A4%BA%E4%BE%8B"><span class="nav-number">1.1.1.2.</span> <span class="nav-text">示例</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%A7%A3%E9%A2%98"><span class="nav-number">1.1.1.3.</span> <span class="nav-text">解题</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%96%B9%E6%A1%881%EF%BC%9A"><span class="nav-number">1.1.1.3.1.</span> <span class="nav-text">方案1：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%96%B9%E6%A1%882%EF%BC%9A"><span class="nav-number">1.1.1.3.2.</span> <span class="nav-text">方案2：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%96%B9%E6%A1%883%EF%BC%9A"><span class="nav-number">1.1.1.3.3.</span> <span class="nav-text">方案3：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%96%B9%E6%A1%883%E4%BC%98%E5%8C%96%EF%BC%9A"><span class="nav-number">1.1.1.3.4.</span> <span class="nav-text">方案3优化：</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#JZ5-%E6%9B%BF%E6%8D%A2%E7%A9%BA%E6%A0%BC"><span class="nav-number">1.1.2.</span> <span class="nav-text">JZ5 替换空格</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%8F%8F%E8%BF%B0-1"><span class="nav-number">1.1.2.1.</span> <span class="nav-text">描述</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%A4%BA%E4%BE%8B-1"><span class="nav-number">1.1.2.2.</span> <span class="nav-text">示例</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%A7%A3%E9%A2%98-1"><span class="nav-number">1.1.2.3.</span> <span class="nav-text">解题</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%96%B9%E6%A1%881%EF%BC%9A-1"><span class="nav-number">1.1.2.3.1.</span> <span class="nav-text">方案1：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%96%B9%E6%A1%882%EF%BC%9A-1"><span class="nav-number">1.1.2.3.2.</span> <span class="nav-text">方案2：</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#JZ17-%E6%89%93%E5%8D%B0%E4%BB%8E1%E5%88%B0%E6%9C%80%E5%A4%A7%E7%9A%84n%E4%BD%8D%E6%95%B0"><span class="nav-number">1.1.3.</span> <span class="nav-text">JZ17 打印从1到最大的n位数</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%8F%8F%E8%BF%B0-2"><span class="nav-number">1.1.3.1.</span> <span class="nav-text">描述</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%A4%BA%E4%BE%8B-2"><span class="nav-number">1.1.3.2.</span> <span class="nav-text">示例</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%A7%A3%E9%A2%98-2"><span class="nav-number">1.1.3.3.</span> <span class="nav-text">解题</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%96%B9%E6%A1%881%EF%BC%9A-2"><span class="nav-number">1.1.3.3.1.</span> <span class="nav-text">方案1：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%96%B9%E6%A1%882%EF%BC%9A-2"><span class="nav-number">1.1.3.3.2.</span> <span class="nav-text">方案2：</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#JZ21-%E8%B0%83%E6%95%B4%E6%95%B0%E7%BB%84%E9%A1%BA%E5%BA%8F%E4%BD%BF%E5%A5%87%E6%95%B0%E4%BD%8D%E4%BA%8E%E5%81%B6%E6%95%B0%E5%89%8D%E9%9D%A2-%E4%B8%80"><span class="nav-number">1.1.4.</span> <span class="nav-text">JZ21 调整数组顺序使奇数位于偶数前面(一)</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%8F%8F%E8%BF%B0-3"><span class="nav-number">1.1.4.1.</span> <span class="nav-text">描述</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%A4%BA%E4%BE%8B-3"><span class="nav-number">1.1.4.2.</span> <span class="nav-text">示例</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%A7%A3%E9%A2%98-3"><span class="nav-number">1.1.4.3.</span> <span class="nav-text">解题</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%96%B9%E6%A1%881%EF%BC%9A-3"><span class="nav-number">1.1.4.3.1.</span> <span class="nav-text">方案1：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%96%B9%E6%A1%882%EF%BC%9A-3"><span class="nav-number">1.1.4.3.2.</span> <span class="nav-text">方案2：</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Z81-%E8%B0%83%E6%95%B4%E6%95%B0%E7%BB%84%E9%A1%BA%E5%BA%8F%E4%BD%BF%E5%A5%87%E6%95%B0%E4%BD%8D%E4%BA%8E%E5%81%B6%E6%95%B0%E5%89%8D%E9%9D%A2-%E4%BA%8C"><span class="nav-number">1.1.5.</span> <span class="nav-text">Z81 调整数组顺序使奇数位于偶数前面(二)</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%8F%8F%E8%BF%B0-4"><span class="nav-number">1.1.5.1.</span> <span class="nav-text">描述</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%A4%BA%E4%BE%8B1"><span class="nav-number">1.1.5.2.</span> <span class="nav-text">示例1</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%A7%A3%E9%A2%98-4"><span class="nav-number">1.1.5.3.</span> <span class="nav-text">解题</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%96%B9%E6%A1%881%EF%BC%9A-4"><span class="nav-number">1.1.5.3.1.</span> <span class="nav-text">方案1：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%96%B9%E6%A1%882%EF%BC%9A-4"><span class="nav-number">1.1.5.3.2.</span> <span class="nav-text">方案2：</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#JZ39-%E6%95%B0%E7%BB%84%E4%B8%AD%E5%87%BA%E7%8E%B0%E6%AC%A1%E6%95%B0%E8%B6%85%E8%BF%87%E4%B8%80%E5%8D%8A%E7%9A%84%E6%95%B0%E5%AD%97"><span class="nav-number">1.1.6.</span> <span class="nav-text">JZ39 数组中出现次数超过一半的数字</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%8F%8F%E8%BF%B0-5"><span class="nav-number">1.1.6.1.</span> <span class="nav-text">描述</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%A1%88%E4%BE%8B"><span class="nav-number">1.1.6.2.</span> <span class="nav-text">案例</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%A7%A3%E9%A2%98-5"><span class="nav-number">1.1.6.3.</span> <span class="nav-text">解题</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%96%B9%E6%A1%881%EF%BC%9A-5"><span class="nav-number">1.1.6.3.1.</span> <span class="nav-text">方案1：</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%93%BE%E8%A1%A8"><span class="nav-number">1.2.</span> <span class="nav-text">链表</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#JZ6-%E4%BB%8E%E5%B0%BE%E5%88%B0%E5%A4%B4%E6%89%93%E5%8D%B0%E9%93%BE%E8%A1%A8"><span class="nav-number">1.2.1.</span> <span class="nav-text">JZ6 从尾到头打印链表</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%8F%8F%E8%BF%B0-6"><span class="nav-number">1.2.1.1.</span> <span class="nav-text">描述</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%A4%BA%E4%BE%8B1-1"><span class="nav-number">1.2.1.2.</span> <span class="nav-text">示例1</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%A7%A3%E9%A2%98-6"><span class="nav-number">1.2.1.3.</span> <span class="nav-text">解题</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%96%B9%E6%A1%881%EF%BC%9A-6"><span class="nav-number">1.2.1.3.1.</span> <span class="nav-text">方案1：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%96%B9%E6%A1%882%EF%BC%9A-5"><span class="nav-number">1.2.1.3.2.</span> <span class="nav-text">方案2：</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#JZ18-%E5%88%A0%E9%99%A4%E9%93%BE%E8%A1%A8%E7%9A%84%E8%8A%82%E7%82%B9"><span class="nav-number">1.2.2.</span> <span class="nav-text">JZ18 删除链表的节点</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%8F%8F%E8%BF%B0-7"><span class="nav-number">1.2.2.1.</span> <span class="nav-text">描述</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%A4%BA%E4%BE%8B1-2"><span class="nav-number">1.2.2.2.</span> <span class="nav-text">示例1</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%A7%A3%E9%A2%98-7"><span class="nav-number">1.2.2.3.</span> <span class="nav-text">解题</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%96%B9%E6%A1%881%EF%BC%9A-7"><span class="nav-number">1.2.2.3.1.</span> <span class="nav-text">方案1：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%96%B9%E6%A1%882%EF%BC%9A-6"><span class="nav-number">1.2.2.3.2.</span> <span class="nav-text">方案2：</span></a></li></ol></li></ol></li></ol></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Ethan Liu"
+      src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">Ethan Liu</p>
+  <div class="site-description" itemprop="description"><font color='#0000FF' size=1.5px>语言学 | IT | 脑科学 | 心理学</font></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">72</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">19</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">26</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2V0aGFubGl1Ng==" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;ethanliu6"><i class="fab fa-github fa-fw"></i>GitHub</span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="bWFpbHRvOmxpdWUyMzM2QGdtYWlsLmNvbQ==" title="E-Mail → mailto:liue2336@gmail.com"><i class="fa fa-envelope fa-fw"></i>E-Mail</span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly9zcGFjZS5iaWxpYmlsaS5jb20vMTMyNzA5OTk3Nw==" title="BiliBili → https:&#x2F;&#x2F;space.bilibili.com&#x2F;1327099977"><i class="fa-brands fa-bilibili fa-fw"></i>BiliBili</span>
+      </span>
+      <span class="links-of-author-item">
+        <a href="/categories/Love/" title="Love → &#x2F;categories&#x2F;Love&#x2F;" rel="noopener me"><i class="fa fa-heart fa-fw"></i>Love</a>
+      </span>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://ethanliu6.github.io/2024/05/08/03.%20%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%E3%80%90150%E3%80%91/151.%20IT%E7%B1%BB/000.%20%E9%80%9A%E7%94%A8%E5%86%85%E5%AE%B9/01.%20%E7%AE%97%E6%B3%95%E5%88%B7%E9%A2%98/01.%20%E5%89%91%E6%8C%87offer/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Ethan Liu">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="<font color='white' >Ethan の Blog</font>">
+      <meta itemprop="description" content="<font color='#0000FF' size=1.5px>语言学 | IT | 脑科学 | 心理学</font>">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="剑指offer | <font color='white' >Ethan の Blog</font>">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          剑指offer<span class="exturl post-edit-link" data-url="aHR0cHM6Ly9naXRodWIuY29tL0V0aGFuTGl1Ni9ldGhhbmxpdTYuZ2l0aHViLmlvL3RyZWUvbWFzdGVyL19wb3N0cy8wMy4g5a2m5Lmg56yU6K6w44CQMTUw44CRLzE1MS4gSVTnsbsvMDAwLiDpgJrnlKjlhoXlrrkvMDEuIOeul+azleWIt+mimC8wMS4g5YmR5oyHb2ZmZXIubWQ=" title="编辑"><i class="fa fa-pen-nib"></i></span>
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2024-05-08 00:00:00" itemprop="dateCreated datePublished" datetime="2024-05-08T00:00:00+08:00">2024-05-08</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2024-09-14 20:55:59" itemprop="dateModified" datetime="2024-09-14T20:55:59+08:00">2024-09-14</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%88%B7%E9%A2%98/" itemprop="url" rel="index"><span itemprop="name">刷题</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Changyan：</span>
+    
+    <a title="剑指offer" href="/2024/05/08/03.%20%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%E3%80%90150%E3%80%91/151.%20IT%E7%B1%BB/000.%20%E9%80%9A%E7%94%A8%E5%86%85%E5%AE%B9/01.%20%E7%AE%97%E6%B3%95%E5%88%B7%E9%A2%98/01.%20%E5%89%91%E6%8C%87offer/#SOHUCS" itemprop="discussionUrl">
+      <span id="sourceId::c2eb40fae1093c4b3fb5135915e804ff" class="cy_cmt_count" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>2.1k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>8 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><blockquote class="blockquote-center">
+<p>该篇是关于算法的<strong>剑指offer刷题系列</strong></p>
+
+</blockquote>
+<span id="more"></span>
+<h1 id="剑指offer72题"><a href="#剑指offer72题" class="headerlink" title="剑指offer72题"></a>剑指offer72题</h1><h2 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h2><h3 id="JZ3-数组中重复的数字"><a href="#JZ3-数组中重复的数字" class="headerlink" title="JZ3 数组中重复的数字"></a><strong>JZ3</strong> <strong><span class="exturl" data-url="aHR0cHM6Ly93d3cubm93Y29kZXIuY29tL3ByYWN0aWNlLzZmZTM2MWVkZTdlNTRkYjFiODRhZGM4MWQwOWQ4NTI0P3RwSWQ9MjY1JnRxSWQ9MzkyMDcmcnA9MSZydT0vZXhhbS9vai90YSZxcnU9L2V4YW0vb2ovdGEmc291cmNlVXJsPSUyRmV4YW0lMkZvaiUyRnRhJTNGdHBJZCUzRDEzJmRpZmZpY3VsdHk9dW5kZWZpbmVkJmp1ZGdlU3RhdHVzPXVuZGVmaW5lZCZ0YWdzPSZ0aXRsZT0=">数组中重复的数字<i class="fa fa-external-link-alt"></i></span></strong></h3><h4 id="描述"><a href="#描述" class="headerlink" title="描述"></a>描述</h4><p>在一个长度为n的数组里的所有数字都在0到n-1的范围内。 数组中某些数字是重复的，但不知道有几个数字是重复的。也不知道每个数字重复几次。请找出数组中任意一个重复的数字。 例如，如果输入长度为7的数组[2,3,1,0,2,5,3]，那么对应的输出是2或者3。存在不合法的输入的话输出-1</p>
+<p>数据范围：0≤𝑛≤10000 0≤<em>n</em>≤10000 </p>
+<p>进阶：时间复杂度𝑂(𝑛) <em>O</em>(<em>n</em>) ，空间复杂度𝑂(𝑛) <em>O</em>(<em>n</em>) </p>
+<h4 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">输入：[2,3,1,0,2,5,3]</span><br><span class="line">返回值：2</span><br><span class="line">说明：2或3都是对的 </span><br></pre></td></tr></table></figure>
+<h4 id="解题"><a href="#解题" class="headerlink" title="解题"></a>解题</h4><h5 id="方案1："><a href="#方案1：" class="headerlink" title="方案1："></a>方案1：</h5><p>暴力法(for + for)</p>
+<h5 id="方案2："><a href="#方案2：" class="headerlink" title="方案2："></a>方案2：</h5><p>哈希表</p>
+<div class="tabs" id="方案2"><ul class="nav-tabs"><li class="tab active"><a href="#方案2-1">Python3</a></li><li class="tab"><a href="#方案2-2">Java</a></li></ul><div class="tab-content"><div class="tab-pane active" id="方案2-1"><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">duplicate</span>(<span class="params">self , numbers: <span class="type">List</span>[<span class="built_in">int</span>]</span>) -&gt; <span class="built_in">int</span>:</span><br><span class="line"></span><br><span class="line">        <span class="comment"># write code here</span></span><br><span class="line">        <span class="comment"># 法2：哈希表</span></span><br><span class="line">        record = &#123;&#125; // // 用来记录已遍历的数</span><br><span class="line">        <span class="keyword">for</span> num <span class="keyword">in</span> numbers:</span><br><span class="line">            <span class="keyword">if</span> num <span class="keyword">not</span> <span class="keyword">in</span> record: <span class="comment"># 未记录则添加</span></span><br><span class="line">                record[num] = <span class="number">1</span> <span class="comment"># value可以任意</span></span><br><span class="line">            <span class="keyword">else</span>: <span class="keyword">return</span> num <span class="comment"># 已记录则返回该数</span></span><br><span class="line">        <span class="keyword">return</span> -<span class="number">1</span></span><br></pre></td></tr></table></figure></div><div class="tab-pane" id="方案2-2"><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">duplicate</span> <span class="params">(<span class="type">int</span>[] numbers)</span> &#123;</span><br><span class="line">        <span class="comment">// write code here</span></span><br><span class="line">        <span class="keyword">if</span> (numbers == <span class="literal">null</span> || numbers.length == <span class="number">0</span>)&#123;</span><br><span class="line">            <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        HashSet&lt;Integer&gt; record = <span class="keyword">new</span> <span class="title class_">HashSet</span>&lt;&gt;(); <span class="comment">// 用来记录已遍历的数</span></span><br><span class="line">        </span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> num : numbers)&#123;</span><br><span class="line">            <span class="keyword">if</span> (record.contains(num))&#123; <span class="comment">// 已记录则直接return该值</span></span><br><span class="line">                <span class="keyword">return</span> num;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span>&#123;</span><br><span class="line">                record.add(num); <span class="comment">// 未记录则添加</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div></div></div>
+<h5 id="方案3："><a href="#方案3：" class="headerlink" title="方案3："></a>方案3：</h5><p>可以使用两数之和的<code>index&lt;---&gt;value</code>思想</p>
+<div class="tabs" id="方案3"><ul class="nav-tabs"><li class="tab active"><a href="#方案3-1">Python3</a></li><li class="tab"><a href="#方案3-2">Java</a></li></ul><div class="tab-content"><div class="tab-pane active" id="方案3-1"><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">duplicate</span>(<span class="params">self , numbers: <span class="type">List</span>[<span class="built_in">int</span>]</span>) -&gt; <span class="built_in">int</span>:</span><br><span class="line">        <span class="comment"># write code here</span></span><br><span class="line"></span><br><span class="line">        <span class="comment"># 利用好已知的[0, n-1] --&gt; 使用idx&lt;--&gt;value思想（两数之和）</span></span><br><span class="line">        <span class="keyword">if</span> ( <span class="built_in">len</span>(numbers) &lt; <span class="number">2</span> ): <span class="keyword">return</span> -<span class="number">1</span></span><br><span class="line">        record = [<span class="number">0</span>] * <span class="built_in">len</span>(numbers) <span class="comment"># 利用已知条件</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> num <span class="keyword">in</span> numbers:</span><br><span class="line">            record[num] += <span class="number">1</span> <span class="comment"># value ——&gt; idx</span></span><br><span class="line">            <span class="keyword">if</span> record[num] == <span class="number">2</span>: <span class="keyword">return</span> num</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> -<span class="number">1</span></span><br></pre></td></tr></table></figure></div><div class="tab-pane" id="方案3-2"><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">duplicate</span> <span class="params">(<span class="type">int</span>[] numbers)</span> &#123;</span><br><span class="line">        <span class="comment">// write code here</span></span><br><span class="line">        <span class="comment">// 关键点：长度为n的数组里的所有数字都在0到n-1的范围内</span></span><br><span class="line">        <span class="comment">/**</span></span><br><span class="line"><span class="comment">        * 利用 index &lt;--&gt; value 思想</span></span><br><span class="line"><span class="comment">        * 1. 可定义一个zero_like(numbers), 即定义一个与numbers等长的元素集合为零的数组</span></span><br><span class="line"><span class="comment">        * 2. 遍历numbers，让其元素值作为自定义数组的索引（这里就利用了题目给定的一个关键点信息）</span></span><br><span class="line"><span class="comment">        * 3. 遍历一个索引添加一个，让其值由原来的0实现++，索引定位元素值大于1（或者等于2）的时候返回该元素</span></span><br><span class="line"><span class="comment">         */</span></span><br><span class="line">         <span class="type">int</span>[] record = <span class="keyword">new</span> <span class="title class_">int</span>[numbers.length]; <span class="comment">// 1.</span></span><br><span class="line">         <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; numbers.length; i++)&#123;</span><br><span class="line">            record[numbers[i]]++; <span class="comment">// 2.</span></span><br><span class="line">            <span class="keyword">if</span> (record[numbers[i]] == <span class="number">2</span>)&#123;</span><br><span class="line">                <span class="keyword">return</span> numbers[i];</span><br><span class="line">            &#125;</span><br><span class="line">         &#125;</span><br><span class="line">        <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div></div></div>
+<h5 id="方案3优化："><a href="#方案3优化：" class="headerlink" title="方案3优化："></a>方案3优化：</h5><p>将两个List用一个原始List实现</p>
+<div class="tabs" id="方案3优化"><ul class="nav-tabs"><li class="tab active"><a href="#方案3优化-1">Python</a></li><li class="tab"><a href="#方案3优化-2">Java</a></li></ul><div class="tab-content"><div class="tab-pane active" id="方案3优化-1"><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">duplicate</span>(<span class="params">self , numbers: <span class="type">List</span>[<span class="built_in">int</span>]</span>) -&gt; <span class="built_in">int</span>:</span><br><span class="line">        <span class="comment"># write code here</span></span><br><span class="line">        <span class="comment"># 对于第一次不同： 对num 和 index对应（不对应进行交换），对应则返回</span></span><br><span class="line">        <span class="keyword">for</span> idx <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(numbers)):</span><br><span class="line">            <span class="keyword">while</span> idx != numbers[idx]:</span><br><span class="line">                <span class="keyword">if</span> numbers[idx] == numbers[numbers[idx]]: <span class="comment">#why？？？</span></span><br><span class="line">                    <span class="keyword">return</span> numbers[idx]    </span><br><span class="line">                numbers[numbers[idx]], numbers[idx] = numbers[idx], numbers[numbers[idx]] <span class="comment"># why不能把后换前</span></span><br><span class="line">            </span><br><span class="line">        <span class="keyword">return</span> -<span class="number">1</span></span><br></pre></td></tr></table></figure></div><div class="tab-pane" id="方案3优化-2"><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">duplicate</span> <span class="params">(<span class="type">int</span>[] numbers)</span> &#123;</span><br><span class="line">        <span class="comment">// write code here</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span>  <span class="operator">=</span> <span class="number">0</span>; i &lt; numbers.length; i++)&#123;</span><br><span class="line">            <span class="keyword">while</span> (i != numbers[i])&#123; <span class="comment">//idx和value不同</span></span><br><span class="line">                <span class="keyword">if</span> (numbers[i] == numbers[numbers[i]])&#123; <span class="comment">// </span></span><br><span class="line">                    <span class="keyword">return</span> numbers[i];</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="type">int</span> <span class="variable">temp</span> <span class="operator">=</span> numbers[numbers[i]];</span><br><span class="line">                numbers[numbers[i]] =  numbers[i];</span><br><span class="line">                numbers[i] = temp;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div></div></div>
+<h3 id="JZ5-替换空格"><a href="#JZ5-替换空格" class="headerlink" title="JZ5 替换空格"></a><strong>JZ5</strong> <strong>替换空格</strong></h3><h4 id="描述-1"><a href="#描述-1" class="headerlink" title="描述"></a>描述</h4><p>请实现一个函数，将一个字符串s中的每个空格替换成“%20”。</p>
+<p>例如，当字符串为We Are Happy.则经过替换之后的字符串为We%20Are%20Happy。</p>
+<p>数据范围:0≤𝑙𝑒𝑛(𝑠)≤1000 0≤<em>l<strong>e</strong>n</em>(<em>s</em>)≤1000 。保证字符串中的字符为大写英文字母、小写英文字母和空格中的一种。</p>
+<h4 id="示例-1"><a href="#示例-1" class="headerlink" title="示例"></a>示例</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入：&quot;We Are Happy&quot;</span><br><span class="line">返回值：&quot;We%20Are%20Happy&quot;</span><br></pre></td></tr></table></figure>
+<h4 id="解题-1"><a href="#解题-1" class="headerlink" title="解题"></a>解题</h4><h5 id="方案1：-1"><a href="#方案1：-1" class="headerlink" title="方案1："></a>方案1：</h5><p>直接遍历，遇到则转换，将遍历结果添加到新的String中。</p>
+<p>补充知识点：java中String追加char的三种方法——<font color="red"><span class="exturl" data-url="aHR0cHM6Ly93d3cuZGVsZnRzdGFjay5jb20vemgvaG93dG8vamF2YS9hZGQtY2hhci10by1zdHJpbmctamF2YS8=">Add Cahr To String For Java<i class="fa fa-external-link-alt"></i></span></font></p>
+<div class="tabs" id="方案1"><ul class="nav-tabs"><li class="tab active"><a href="#方案1-1">Python3</a></li><li class="tab"><a href="#方案1-2">Java</a></li><li class="tab"><a href="#方案1-3">Java优化</a></li></ul><div class="tab-content"><div class="tab-pane active" id="方案1-1"><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">replaceSpace</span>(<span class="params">self , s: <span class="built_in">str</span></span>) -&gt; <span class="built_in">str</span>:</span><br><span class="line">        <span class="comment"># write code here</span></span><br><span class="line">        new_s = <span class="string">&quot;&quot;</span></span><br><span class="line">         <span class="keyword">for</span> char <span class="keyword">in</span> s:</span><br><span class="line">             <span class="comment"># for char in list(s): # 改用list？效率为啥提高了？</span></span><br><span class="line">             <span class="keyword">if</span> char == <span class="string">&quot; &quot;</span>:</span><br><span class="line">                 char = <span class="string">&quot;%20&quot;</span></span><br><span class="line">             new_s += char</span><br><span class="line">         <span class="keyword">return</span> new_s</span><br></pre></td></tr></table></figure></div><div class="tab-pane" id="方案1-2"><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> String <span class="title function_">replaceSpace</span> <span class="params">(String s)</span> &#123;</span><br><span class="line">        <span class="comment">// write code here</span></span><br><span class="line">      	<span class="comment">//String newS = s.replace(&quot; &quot;, &quot;%20&quot;);</span></span><br><span class="line">        <span class="type">String</span> <span class="variable">newS</span> <span class="operator">=</span> <span class="string">&quot;&quot;</span>;</span><br><span class="line">      	<span class="type">char</span>[] ch = s.toCharArray();</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">char</span> c: ch)&#123; <span class="comment">// 别放在forEach里面，会降低效率</span></span><br><span class="line">            <span class="keyword">if</span> (c == <span class="string">&#x27; &#x27;</span>)&#123;</span><br><span class="line">                newS += <span class="string">&#x27;%&#x27;</span>;</span><br><span class="line">                newS += <span class="string">&#x27;2&#x27;</span>;</span><br><span class="line">                newS += <span class="string">&#x27;0&#x27;</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span> newS = newS + c;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> newS;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div><div class="tab-pane" id="方案1-3"><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> String <span class="title function_">replaceSpace</span> <span class="params">(String s)</span> &#123;</span><br><span class="line">        <span class="comment">// write code here</span></span><br><span class="line">      	<span class="comment">// 使用StringBuffer</span></span><br><span class="line">        <span class="type">StringBuffer</span> <span class="variable">sb</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">StringBuffer</span>();</span><br><span class="line">        <span class="type">char</span>[] ch = s.toCharArray(); <span class="comment">// 别放在forEach里面，会降低效率</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="type">char</span> c: ch)&#123;</span><br><span class="line">            <span class="keyword">if</span> (c == <span class="string">&#x27; &#x27;</span>)&#123;</span><br><span class="line">                sb.append(<span class="string">&#x27;%&#x27;</span>);</span><br><span class="line">                sb.append(<span class="string">&#x27;2&#x27;</span>);</span><br><span class="line">                sb.append(<span class="string">&#x27;0&#x27;</span>);</span><br><span class="line">            &#125;<span class="keyword">else</span> sb.append(c);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> sb.toString();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div></div></div>
+<h5 id="方案2：-1"><a href="#方案2：-1" class="headerlink" title="方案2："></a>方案2：</h5><p>字符串扩容，扩容 空格字符*2 个单元，倒序遍历字符串，追加到扩容字符，按照条件进行添加处理</p>
+<h3 id="JZ17-打印从1到最大的n位数"><a href="#JZ17-打印从1到最大的n位数" class="headerlink" title="JZ17 打印从1到最大的n位数"></a>JZ17 <strong>打印从1到最大的n位数</strong></h3><h4 id="描述-2"><a href="#描述-2" class="headerlink" title="描述"></a>描述</h4><p>输入数字 n，按顺序打印出从 1 到最大的 n 位十进制数。比如输入 3，则打印出 1、2、3 一直到最大的 3 位数 999。</p>
+<ol>
+<li>用返回一个整数列表来代替打印</li>
+<li>n 为正整数，0 &lt; n &lt;= 5</li>
+</ol>
+<h4 id="示例-2"><a href="#示例-2" class="headerlink" title="示例"></a>示例</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入：1</span><br><span class="line">返回值：[1,2,3,4,5,6,7,8,9]</span><br></pre></td></tr></table></figure>
+<h4 id="解题-2"><a href="#解题-2" class="headerlink" title="解题"></a>解题</h4><h5 id="方案1：-2"><a href="#方案1：-2" class="headerlink" title="方案1："></a>方案1：</h5><p>直接暴力遍历（注意边界条件）</p>
+<div class="tabs" id="方案1"><ul class="nav-tabs"><li class="tab active"><a href="#方案1-1">Python</a></li><li class="tab"><a href="#方案1-2">Java</a></li></ul><div class="tab-content"><div class="tab-pane active" id="方案1-1"><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">printNumbers</span>(<span class="params">self , n: <span class="built_in">int</span></span>) -&gt; <span class="type">List</span>[<span class="built_in">int</span>]:</span><br><span class="line">        <span class="comment"># write code here</span></span><br><span class="line">        <span class="keyword">return</span> [number <span class="keyword">for</span> number <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, <span class="number">10</span>**n)]</span><br><span class="line"></span><br></pre></td></tr></table></figure></div><div class="tab-pane" id="方案1-2"><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span>[] printNumbers (<span class="type">int</span> n) &#123;</span><br><span class="line">        <span class="comment">// write code here</span></span><br><span class="line">        <span class="type">int</span>[] res = <span class="keyword">new</span> <span class="title class_">int</span>[(<span class="type">int</span>)Math.pow(<span class="number">10</span>,n) - <span class="number">1</span>];</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">1</span>; i &lt; Math.pow(<span class="number">10</span>, n); i++)&#123;</span><br><span class="line">            res[i-<span class="number">1</span>] = i;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div></div></div>
+<h5 id="方案2：-2"><a href="#方案2：-2" class="headerlink" title="方案2："></a>方案2：</h5><div class="tabs" id="方案2"><ul class="nav-tabs"><li class="tab active"><a href="#方案2-1">Python</a></li><li class="tab"><a href="#方案2-2">Java</a></li></ul><div class="tab-content"><div class="tab-pane active" id="方案2-1"><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure></div><div class="tab-pane" id="方案2-2"><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure></div></div></div>
+<h3 id="JZ21-调整数组顺序使奇数位于偶数前面-一"><a href="#JZ21-调整数组顺序使奇数位于偶数前面-一" class="headerlink" title="JZ21 调整数组顺序使奇数位于偶数前面(一)"></a>JZ21 <strong><span class="exturl" data-url="aHR0cHM6Ly93d3cubm93Y29kZXIuY29tL3ByYWN0aWNlL2VmMWY1M2VmMzFjYTQwOGNhZGE1MDkzYzg3ODBmNDRiP3RwSWQ9MjY1JnJwPTEmcnU9JTJGZXhhbSUyRm9qJTJGdGEmcXJ1PSUyRmV4YW0lMkZvaiUyRnRhJnNvdXJjZVVybD0lMkZleGFtJTJGb2olMkZ0YSUzRnRwSWQlM0QxMyZkaWZmaWN1bHR5PSZqdWRnZVN0YXR1cz0mdGFncz01NzgmdGl0bGU9Jmdpb0VudGVyPW1lbnU=">调整数组顺序使奇数位于偶数前面(一)<i class="fa fa-external-link-alt"></i></span></strong></h3><h4 id="描述-3"><a href="#描述-3" class="headerlink" title="描述"></a>描述</h4><p>输入一个长度为 n 整数数组，实现一个函数来调整该数组中数字的顺序，使得所有的奇数位于数组的前面部分，所有的偶数位于数组的后面部分，并保证奇数和奇数，偶数和偶数之间的相对位置不变。</p>
+<p>数据范围：0≤𝑛≤50000≤<em>n</em>≤5000，数组中每个数的值 0≤𝑣𝑎𝑙≤100000≤<em>v<strong>a</strong>l</em>≤10000</p>
+<p>要求：时间复杂度 𝑂(𝑛)<em>O</em>(<em>n</em>)，空间复杂度 𝑂(𝑛)<em>O</em>(<em>n</em>)</p>
+<p>进阶：时间复杂度 𝑂(𝑛2)<em>O</em>(<em>n</em>2)，空间复杂度 𝑂(1)<em>O</em>(1)</p>
+<h4 id="示例-3"><a href="#示例-3" class="headerlink" title="示例"></a>示例</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入：[1,2,3,4]</span><br><span class="line">返回值：[1,3,2,4]</span><br></pre></td></tr></table></figure>
+<h4 id="解题-3"><a href="#解题-3" class="headerlink" title="解题"></a>解题</h4><h5 id="方案1：-3"><a href="#方案1：-3" class="headerlink" title="方案1："></a>方案1：</h5><p>奇偶拼接</p>
+<div class="tabs" id="方案1"><ul class="nav-tabs"><li class="tab active"><a href="#方案1-1">Python</a></li><li class="tab"><a href="#方案1-2">Python</a></li><li class="tab"><a href="#方案1-3">Java</a></li></ul><div class="tab-content"><div class="tab-pane active" id="方案1-1"><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">reOrderArray</span>(<span class="params">self , array: <span class="type">List</span>[<span class="built_in">int</span>]</span>) -&gt; <span class="type">List</span>[<span class="built_in">int</span>]:</span><br><span class="line">        <span class="comment"># write code here</span></span><br><span class="line">        <span class="comment"># 双指针-&gt;&gt; 左边找新奇数，右边找</span></span><br><span class="line">        new_arr = [<span class="number">0</span>] * <span class="built_in">len</span>(array)</span><br><span class="line"></span><br><span class="line">        count = <span class="number">0</span> <span class="comment">#奇数计数器</span></span><br><span class="line">        <span class="keyword">for</span> num <span class="keyword">in</span> array:</span><br><span class="line">            <span class="keyword">if</span> num % <span class="number">2</span> == <span class="number">1</span>:</span><br><span class="line">                count += <span class="number">1</span></span><br><span class="line">        tow = <span class="number">0</span></span><br><span class="line">        <span class="keyword">for</span> idx <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(array)):</span><br><span class="line">            <span class="keyword">if</span> <span class="keyword">not</span> array[idx] % <span class="number">2</span>:</span><br><span class="line">                new_arr[count] = array[idx]</span><br><span class="line">                count += <span class="number">1</span></span><br><span class="line">            <span class="keyword">else</span>: </span><br><span class="line">                new_arr[tow] = array[idx]</span><br><span class="line">                tow += <span class="number">1</span></span><br><span class="line">        <span class="keyword">return</span> new_arr</span><br><span class="line"></span><br></pre></td></tr></table></figure></div><div class="tab-pane" id="方案1-2"><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">reOrderArray</span>(<span class="params">self , array: <span class="type">List</span>[<span class="built_in">int</span>]</span>) -&gt; <span class="type">List</span>[<span class="built_in">int</span>]:</span><br><span class="line">        <span class="comment"># write code here</span></span><br><span class="line">        <span class="comment"># 双指针-&gt;&gt; 左边找新奇数，右边找</span></span><br><span class="line">        new_arr = []</span><br><span class="line">        <span class="keyword">for</span> num <span class="keyword">in</span> array:</span><br><span class="line">            <span class="keyword">if</span> num % <span class="number">2</span>:</span><br><span class="line">                new_arr += [num] <span class="comment"># new_arr.append(num)</span></span><br><span class="line">        <span class="keyword">for</span> num <span class="keyword">in</span> array:</span><br><span class="line">            <span class="keyword">if</span> <span class="keyword">not</span> num % <span class="number">2</span>:</span><br><span class="line">                new_arr += [num] <span class="comment"># new_arr.append(num)</span></span><br><span class="line">        <span class="keyword">return</span> new_arr</span><br></pre></td></tr></table></figure></div><div class="tab-pane" id="方案1-3"><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span>[] printNumbers (<span class="type">int</span> n) &#123;</span><br><span class="line">        <span class="comment">// write code here</span></span><br><span class="line">        <span class="type">int</span>[] res = <span class="keyword">new</span> <span class="title class_">int</span>[(<span class="type">int</span>)Math.pow(<span class="number">10</span>,n) - <span class="number">1</span>];</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">1</span>; i &lt; Math.pow(<span class="number">10</span>, n); i++)&#123;</span><br><span class="line">            res[i-<span class="number">1</span>] = i;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div></div></div>
+<h5 id="方案2：-3"><a href="#方案2：-3" class="headerlink" title="方案2："></a>方案2：</h5><p> 全排列（考虑大数情况）</p>
+<h3 id="Z81-调整数组顺序使奇数位于偶数前面-二"><a href="#Z81-调整数组顺序使奇数位于偶数前面-二" class="headerlink" title="Z81 调整数组顺序使奇数位于偶数前面(二)"></a>Z81 调整数组顺序使奇数位于偶数前面(二)</h3><h4 id="描述-4"><a href="#描述-4" class="headerlink" title="描述"></a>描述</h4><p>输入一个长度为 n 整数数组，数组里面可能含有相同的元素，实现一个函数来调整该数组中数字的顺序，使得所有的奇数位于数组的前面部分，所有的偶数位于数组的后面部分，对奇数和奇数，偶数和偶数之间的相对位置不做要求，但是时间复杂度和空间复杂度必须如下要求。</p>
+<p>数据范围：0≤𝑛≤500000≤<em>n</em>≤50000，数组中每个数的值 0≤𝑣𝑎𝑙≤100000≤<em>v<strong>a</strong>l</em>≤10000</p>
+<p>要求：时间复杂度 𝑂(𝑛)，空间复杂度 𝑂(1)</p>
+<h4 id="示例1"><a href="#示例1" class="headerlink" title="示例1"></a>示例1</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入：[1,2,3,4]</span><br><span class="line">返回值：[1,3,2,4]</span><br></pre></td></tr></table></figure>
+<p>说明：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[3,1,2,4]或者[3,1,4,2]也是正确答案 </span><br></pre></td></tr></table></figure>
+<h4 id="解题-4"><a href="#解题-4" class="headerlink" title="解题"></a>解题</h4><h5 id="方案1：-4"><a href="#方案1：-4" class="headerlink" title="方案1："></a>方案1：</h5><p>同JZ21</p>
+<h5 id="方案2：-4"><a href="#方案2：-4" class="headerlink" title="方案2："></a>方案2：</h5><p>双指针</p>
+<div class="tabs" id="方案2"><ul class="nav-tabs"><li class="tab active"><a href="#方案2-1">Python</a></li><li class="tab"><a href="#方案2-2">Java</a></li></ul><div class="tab-content"><div class="tab-pane active" id="方案2-1"><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure></div><div class="tab-pane" id="方案2-2"><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure></div></div></div>
+<h3 id="JZ39-数组中出现次数超过一半的数字"><a href="#JZ39-数组中出现次数超过一半的数字" class="headerlink" title="JZ39 数组中出现次数超过一半的数字"></a><strong>JZ39</strong> <strong>数组中出现次数超过一半的数字</strong></h3><h4 id="描述-5"><a href="#描述-5" class="headerlink" title="描述"></a>描述</h4><p>给一个长度为 n 的数组，数组中有一个数字出现的次数超过数组长度的一半，请找出这个数字。</p>
+<p>例如输入一个长度为9的数组[1,2,3,2,2,2,5,4,2]。由于数字2在数组中出现了5次，超过数组长度的一半，因此输出2。</p>
+<p>数据范围：𝑛≤50000<em>n</em>≤50000，数组中元素的值 0≤𝑣𝑎𝑙≤100000≤<em>v<strong>a</strong>l</em>≤10000</p>
+<p>要求：空间复杂度：𝑂(1)<em>O</em>(1)，时间复杂度 𝑂(𝑛)<em>O</em>(<em>n</em>)</p>
+<p><strong>输入描述：</strong></p>
+<p>保证数组输入非空，且保证有解</p>
+<h4 id="案例"><a href="#案例" class="headerlink" title="案例"></a>案例</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入：[1,2,3,2,2,2,5,4,2]</span><br><span class="line">返回值：2</span><br></pre></td></tr></table></figure>
+<h4 id="解题-5"><a href="#解题-5" class="headerlink" title="解题"></a>解题</h4><h5 id="方案1：-5"><a href="#方案1：-5" class="headerlink" title="方案1："></a>方案1：</h5><p>利用排序</p>
+<div class="tabs" id="方案1"><ul class="nav-tabs"><li class="tab active"><a href="#方案1-1">Python</a></li><li class="tab"><a href="#方案1-2">Java</a></li></ul><div class="tab-content"><div class="tab-pane active" id="方案1-1"><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">MoreThanHalfNum_Solution</span>(<span class="params">self , numbers: <span class="type">List</span>[<span class="built_in">int</span>]</span>) -&gt; <span class="built_in">int</span>:</span><br><span class="line">        <span class="comment"># write code here</span></span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> numbers: <span class="keyword">return</span> -<span class="number">1</span> <span class="comment">#空list判断</span></span><br><span class="line">        <span class="keyword">if</span> <span class="built_in">len</span>(numbers)==<span class="number">1</span>: <span class="keyword">return</span> numbers[<span class="number">0</span>] <span class="comment"># 单元素返回</span></span><br><span class="line"></span><br><span class="line">        lenght = <span class="built_in">len</span>(numbers) / <span class="number">2</span> <span class="comment"># 用于判断</span></span><br><span class="line">        numbers.sort() <span class="comment"># 原地排序</span></span><br><span class="line">        count = <span class="number">1</span> <span class="comment"># 用来记录当前遍历元素的相同值个数</span></span><br><span class="line">        maxlen = <span class="number">0</span> <span class="comment"># 记录已遍历元素中相同值最多元素的个数</span></span><br><span class="line">        res = -<span class="number">1</span> <span class="comment"># 记录最多元素本身</span></span><br><span class="line">        <span class="keyword">for</span> idx <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(numbers) - <span class="number">1</span>):</span><br><span class="line">            <span class="keyword">if</span> maxlen &gt; lenght: <span class="keyword">return</span> res </span><br><span class="line">            <span class="keyword">if</span> numbers[idx] == numbers[idx + <span class="number">1</span>]: <span class="comment"># 利用排序的功能</span></span><br><span class="line">                count += <span class="number">1</span></span><br><span class="line">                maxlen = <span class="built_in">max</span>(maxlen, count) </span><br><span class="line">                res = numbers[idx + <span class="number">1</span>]</span><br><span class="line">            <span class="keyword">else</span>: count = <span class="number">1</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> res</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure></div><div class="tab-pane" id="方案1-2"><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure></div></div></div>
+<h2 id="链表"><a href="#链表" class="headerlink" title="链表"></a>链表</h2><h3 id="JZ6-从尾到头打印链表"><a href="#JZ6-从尾到头打印链表" class="headerlink" title="JZ6 从尾到头打印链表"></a><strong>JZ6</strong> <strong>从尾到头打印链表</strong></h3><h4 id="描述-6"><a href="#描述-6" class="headerlink" title="描述"></a>描述</h4><p>输入一个链表的头节点，按链表从尾到头的顺序返回每个节点的值（用数组返回）。</p>
+<p>如输入{1,2,3}的链表如下图:</p>
+<p><img data-src="https://uploadfiles.nowcoder.com/images/20210717/557336_1626506480516/103D87B58E565E87DEFA9DD0B822C55F" alt="img"></p>
+<p>返回一个数组为[3,2,1]</p>
+<p>0 &lt;= 链表长度 &lt;= 10000</p>
+<h4 id="示例1-1"><a href="#示例1-1" class="headerlink" title="示例1"></a>示例1</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入：&#123;1,2,3&#125;</span><br><span class="line">返回值：[3,2,1]</span><br></pre></td></tr></table></figure>
+<h4 id="解题-6"><a href="#解题-6" class="headerlink" title="解题"></a>解题</h4><h5 id="方案1：-6"><a href="#方案1：-6" class="headerlink" title="方案1："></a>方案1：</h5><p>顺序存储，倒序输出——&gt;&gt;时间$O(n)$，空间$O(n)$​</p>
+<p>补充：<span class="exturl" data-url="aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDAyMTMzNC9hcnRpY2xlL2RldGFpbHMvMTE1NDgxNDM1">Java Collections交换Arraylist元素位置<i class="fa fa-external-link-alt"></i></span></p>
+<div class="tabs" id="方案1"><ul class="nav-tabs"><li class="tab active"><a href="#方案1-1">Python</a></li><li class="tab"><a href="#方案1-2">Java</a></li><li class="tab"><a href="#方案1-3">Java优化</a></li></ul><div class="tab-content"><div class="tab-pane active" id="方案1-1"><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">printListFromTailToHead</span>(<span class="params">self , listNode: ListNode</span>) -&gt; <span class="type">List</span>[<span class="built_in">int</span>]:</span><br><span class="line">        <span class="comment"># write code here</span></span><br><span class="line">        <span class="comment"># 1.顺序存放，倒序输出</span></span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> listNode: <span class="keyword">return</span> []</span><br><span class="line">        res = []</span><br><span class="line">        <span class="keyword">while</span>(listNode): <span class="comment"># listNode是可迭代对象，listNode.val不是可迭代对象，只是一个值</span></span><br><span class="line">            res.append(listNode.val)</span><br><span class="line">            listNode = listNode.<span class="built_in">next</span></span><br><span class="line">        <span class="keyword">return</span> [res[idx] <span class="keyword">for</span> idx <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(res)-<span class="number">1</span>, -<span class="number">1</span>, -<span class="number">1</span>)]</span><br><span class="line"></span><br></pre></td></tr></table></figure></div><div class="tab-pane" id="方案1-2"><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.*;</span><br><span class="line"><span class="keyword">import</span> java.util.ArrayList;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> ArrayList&lt;Integer&gt; <span class="title function_">printListFromTailToHead</span><span class="params">(ListNode listNode)</span> &#123;</span><br><span class="line">        ArrayList&lt;Integer&gt; res = <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;();</span><br><span class="line">        <span class="comment">// ArrayList&lt;Integer&gt; result = new ArrayList&lt;&gt;();</span></span><br><span class="line">        <span class="keyword">if</span> (listNode == <span class="literal">null</span>)&#123;</span><br><span class="line">            <span class="keyword">return</span> res;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">while</span>(listNode != <span class="literal">null</span>)&#123;</span><br><span class="line">            res.add(listNode.val);</span><br><span class="line">            listNode = listNode.next;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 主要就是使用双指针进行交换，这里使用补充知识（集合工具类）</span></span><br><span class="line">        <span class="type">int</span> <span class="variable">l</span> <span class="operator">=</span> <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> res.size() - <span class="number">1</span>; i &gt; l; i--)&#123; <span class="comment">// 边界条件考虑不用 i &gt;= l</span></span><br><span class="line">            Collections.swap(res, l++, i);</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure></div><div class="tab-pane" id="方案1-3"><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.*;</span><br><span class="line"><span class="keyword">import</span> java.util.ArrayList;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> ArrayList&lt;Integer&gt; <span class="title function_">printListFromTailToHead</span><span class="params">(ListNode listNode)</span> &#123;</span><br><span class="line">      	<span class="comment">// 使用同一个ArrayList记录</span></span><br><span class="line">        ArrayList&lt;Integer&gt; res = <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;();</span><br><span class="line">        <span class="keyword">if</span> (listNode == <span class="literal">null</span>)&#123;</span><br><span class="line">            <span class="keyword">return</span> res;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">while</span>(listNode != <span class="literal">null</span>)&#123;</span><br><span class="line">            res.add(listNode.val);</span><br><span class="line">            listNode = listNode.next;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 主要就是使用双指针进行交换</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> result;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div></div></div>
+<h5 id="方案2：-5"><a href="#方案2：-5" class="headerlink" title="方案2："></a>方案2：</h5><div class="tabs" id="方案2"><ul class="nav-tabs"><li class="tab active"><a href="#方案2-1">Python</a></li><li class="tab"><a href="#方案2-2">Java</a></li></ul><div class="tab-content"><div class="tab-pane active" id="方案2-1"><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure></div><div class="tab-pane" id="方案2-2"><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure></div></div></div>
+<h3 id="JZ18-删除链表的节点"><a href="#JZ18-删除链表的节点" class="headerlink" title="JZ18 删除链表的节点"></a>JZ18 <strong>删除链表的节点</strong></h3><h4 id="描述-7"><a href="#描述-7" class="headerlink" title="描述"></a>描述</h4><p>给定单向链表的头指针和一个要删除的节点的值，定义一个函数删除该节点。返回删除后的链表的头节点。</p>
+<p>1.此题对比原题有改动</p>
+<p>2.题目保证链表中节点的值互不相同</p>
+<p>3.该题只会输出返回的链表和结果做对比，所以若使用 C 或 C++ 语言，你不需要 free 或 delete 被删除的节点</p>
+<p>数据范围:</p>
+<p>0&lt;=链表节点值&lt;=10000</p>
+<p>0&lt;=链表长度&lt;=10000</p>
+<h4 id="示例1-2"><a href="#示例1-2" class="headerlink" title="示例1"></a>示例1</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入：&#123;2,5,1,9&#125;,5</span><br><span class="line">返回值：&#123;2,1,9&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="解题-7"><a href="#解题-7" class="headerlink" title="解题"></a>解题</h4><h5 id="方案1：-7"><a href="#方案1：-7" class="headerlink" title="方案1："></a>方案1：</h5><p>遍历查找删除</p>
+<p>补充：单链表知识</p>
+<div class="tabs" id="方案1"><ul class="nav-tabs"><li class="tab active"><a href="#方案1-1">Python</a></li><li class="tab"><a href="#方案1-2">Java</a></li></ul><div class="tab-content"><div class="tab-pane active" id="方案1-1"><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">ListNode</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self, x</span>):</span><br><span class="line">        self.val = x</span><br><span class="line">        self.<span class="built_in">next</span> = <span class="literal">None</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">deleteNode</span>(<span class="params">self , head: ListNode, val: <span class="built_in">int</span></span>) -&gt; ListNode:</span><br><span class="line">        <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">        :param head: ListNode类 </span></span><br><span class="line"><span class="string">        :param val: int整型 </span></span><br><span class="line"><span class="string">        :return: 删除val值(节点)后的ListNode</span></span><br><span class="line"><span class="string">        &quot;&quot;&quot;</span></span><br><span class="line">        <span class="comment"># write code here</span></span><br><span class="line">        <span class="comment"># 遍历链表，当前遍历的next值为val则指向next的next，如果不是，遍历的next依旧是其next</span></span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> head: <span class="keyword">return</span> head</span><br><span class="line">        <span class="keyword">if</span> head.val == val: <span class="keyword">return</span> head.<span class="built_in">next</span></span><br><span class="line"></span><br><span class="line">        <span class="comment"># 为防止遍历中改变原始链表，应当copy一份head，并指定一个指针用于定位删除元素</span></span><br><span class="line">        temp = head.<span class="built_in">next</span></span><br><span class="line">        cur = head  <span class="comment"># temp为copy，cur为删除定位</span></span><br><span class="line">        <span class="keyword">while</span> temp:  <span class="comment"># 当删除最后一个元素，使用temp.next判断会失误</span></span><br><span class="line">            <span class="keyword">if</span> temp.val == val:</span><br><span class="line">                cur.<span class="built_in">next</span> = temp.<span class="built_in">next</span></span><br><span class="line">                <span class="keyword">return</span> head  <span class="comment"># 共用元素，所以可以这样操作</span></span><br><span class="line">            temp = temp.<span class="built_in">next</span>  <span class="comment"># 遍历的步骤</span></span><br><span class="line">            cur = cur.<span class="built_in">next</span>  <span class="comment"># 这个就好比指针遍历的+=1</span></span><br><span class="line">        <span class="keyword">return</span> head</span><br></pre></td></tr></table></figure></div><div class="tab-pane" id="方案1-2"><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure></div></div></div>
+<h5 id="方案2：-6"><a href="#方案2：-6" class="headerlink" title="方案2："></a>方案2：</h5><p>xxxx</p>
+<div class="tabs" id="方案2"><ul class="nav-tabs"><li class="tab active"><a href="#方案2-1">Python</a></li><li class="tab"><a href="#方案2-2">Java</a></li></ul><div class="tab-content"><div class="tab-pane active" id="方案2-1"><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure></div><div class="tab-pane" id="方案2-2"><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure></div></div></div>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="reward-container">
+  <div>请我一杯咖啡吧！</div>
+  <button>
+    赞赏
+  </button>
+  <div class="post-reward">
+      <div>
+        <img src="/images/wChat.png" alt="Ethan Liu 微信">
+        <span>微信</span>
+      </div>
+
+  </div>
+</div>
+
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>本文作者： </strong>Ethan Liu
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="http://ethanliu6.github.io/2024/05/08/03.%20%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%E3%80%90150%E3%80%91/151.%20IT%E7%B1%BB/000.%20%E9%80%9A%E7%94%A8%E5%86%85%E5%AE%B9/01.%20%E7%AE%97%E6%B3%95%E5%88%B7%E9%A2%98/01.%20%E5%89%91%E6%8C%87offer/" title="剑指offer">http://ethanliu6.github.io/2024/05/08/03. 学习笔记【150】/151. IT类/000. 通用内容/01. 算法刷题/01. 剑指offer/</a>
+  </li>
+  <li class="post-copyright-license">
+      <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC8="><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</span> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+
+          <div class="post-tags">
+              <a href="/tags/%E5%89%91%E6%8C%87offer/" rel="tag"><i class="fa fa-tag"></i> 剑指offer</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2024/05/08/03.%20%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%E3%80%90150%E3%80%91/151.%20IT%E7%B1%BB/002.%20Java%E5%85%A8%E6%A0%88/06.%20MyBatis/01.%20%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8BMyBatis/" rel="prev" title="MyBatis快速入手">
+                  <i class="fa fa-angle-left"></i> MyBatis快速入手
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2024/05/08/03.%20%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%E3%80%90150%E3%80%91/151.%20IT%E7%B1%BB/000.%20%E9%80%9A%E7%94%A8%E5%86%85%E5%AE%B9/01.%20%E7%AE%97%E6%B3%95%E5%88%B7%E9%A2%98/02.%20leetcode%E7%83%AD%E9%A2%98100%E9%A2%98/" rel="next" title="leetcode热题100题">
+                  leetcode热题100题 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments" id="SOHUCS" sid="c2eb40fae1093c4b3fb5135915e804ff"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 2023-2024 – 
+    <span itemprop="copyrightYear">2024</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Is Ethan's</span>
+  </div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+    <span title="站点总字数">154k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">9:22</span>
+  </span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+    </div>
+  </footer>
+
+  
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+  <span class="exturl github-corner" data-url="aHR0cHM6Ly9naXRodWIuY29tL0V0aGFuTGl1Ni8=" title="在 GitHub 上关注我" aria-label="在 GitHub 上关注我"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></span>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/next-theme-pjax/0.6.0/pjax.min.js" integrity="sha256-vxLn1tSKWD4dqbMRyv940UYw4sXgMtYcK6reefzZrao=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.33/fancybox/fancybox.umd.js" integrity="sha256-+2+qOqR8CKoHh/AsVR9k2qaDBKWjYNC2nozhYmv5j9k=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/medium-zoom/1.1.0/medium-zoom.min.js" integrity="sha256-ZgMyDAIYDYGxbcpJcfUnYwNevG/xi9OHKaR/8GK+jWc=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lozad.js/1.16.0/lozad.min.js" integrity="sha256-mOFREFhqmHeQbXpK2lp4nA3qooVgACfh88fpJftLBbc=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/bookmark.js"></script><script src="/js/pjax.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+  <script class="next-config" data-name="pdf" type="application/json">{"object_url":{"url":"https://cdnjs.cloudflare.com/ajax/libs/pdfobject/2.2.12/pdfobject.min.js","integrity":"sha256-g2xji1rlE3KsGVClvuxTbcR0Kn2+wtQADSff2Tbb4zA="},"url":"/lib/pdf/web/viewer.html"}</script>
+  <script src="/js/third-party/tags/pdf.js"></script>
+
+
+
+  <script src="/js/third-party/fancybox.js"></script>
+
+
+
+  
+  <script data-pjax async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"all","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/quicklink/2.3.0/quicklink.umd.js" integrity="sha256-yvJQOINiH9fWemHn0vCA5lsHWJaHs6/ZmO+1Ft04SvM=" crossorigin="anonymous"></script>
+  <script class="next-config" data-name="quicklink" type="application/json">{"enable":true,"home":true,"archive":true,"delay":true,"timeout":3000,"priority":true,"url":"http://ethanliu6.github.io/2024/05/08/03.%20%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%E3%80%90150%E3%80%91/151.%20IT%E7%B1%BB/000.%20%E9%80%9A%E7%94%A8%E5%86%85%E5%AE%B9/01.%20%E7%AE%97%E6%B3%95%E5%88%B7%E9%A2%98/01.%20%E5%89%91%E6%8C%87offer/"}</script>
+  <script src="/js/third-party/quicklink.js"></script>
+<script class="next-config" data-name="changyan" type="application/json">{"enable":true,"appid":"cyxf6tytI","appkey":"90987f30c4b5248baad5a04c7a6abfe1","count":true}</script>
+<script src="/js/third-party/comments/changyan.js"></script>
+
+</body>
+</html>
